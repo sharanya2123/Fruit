@@ -1,0 +1,53 @@
+// Write your code here
+
+import {Component} from 'react'
+
+class FruitsCounter extends Component {
+  state = {mangoesCount: 4, bananasCount: 5}
+
+  onClickEatBanana = () => {
+    this.setState(prevState => ({bananasCount: prevState.bananasCount + 1}))
+  }
+
+  onClickEatMango = () => {
+    this.setState(prevState => ({mangoesCount: prevState.mangoesCount + 1}))
+  }
+  render() {
+    const {mangoesCount, bananasCount} = this.state
+
+    return (
+      <div className="app-container">
+        <div className="fruits-counter">
+          <h1 className="count-text">
+            Bob ate <span className="count">{mangoesCount}</span>mangos
+            <span className="count">{bananasCount}</span> bananas
+          </h1>
+            <div className="counter-control"></div>
+            <img
+              src="https://assets.ccbp.in/frontend/react-js/mango-img.png"
+              alt="mango"
+              className="fruit-image"
+            />
+            <div className="button-container">
+              <button type="button" onClick={this.onClickEatMango}>
+                Eat Mango
+              </button>
+            </div>
+          </div>
+          <div className="counter-control">
+            <img
+              src="https://assets.ccbp.in/frontend/react-js/banana-img.png"
+              alt="banana"
+              className="fruit-image"
+            />
+            <div className="button-container">
+              <button type="button" onClick={this.onClickEatBanana}>
+                Eat Banana
+              </button>
+            </div>
+          </div>
+        </div>
+    )
+  }
+}
+export default FruitsCounter
